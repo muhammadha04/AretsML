@@ -33,14 +33,6 @@ structure, citations or dates.
 Design rules: the model never computes or formats a date; nothing is accepted without a
 quote from the source; doubt is flagged for a person instead of guessed.
 
-## Status
-
-- Checker and the full extract, check, repair, report loop: working, covered by 27
-  tests that need no network or API key.
-- The loop is exercised with recorded responses (`fixtures/demo`: a scripted draft with
-  five seeded faults, then its correction). These are scripted, not model output.
-- Evaluation of live model runs against hand-verified charts is in progress; no accuracy
-  numbers are claimed yet.
 
 The sample chart in `tests/data` is synthetic: its rule numbers are invented.
 
@@ -54,13 +46,6 @@ python -m flowagent check tests/data/sample-procedure.csv --source tests/data/sa
 python -m flowagent extract tests/data/sample-chart.txt --prefix EXP --name sample --provider replay --replay fixtures/demo
 ```
 
-The last command replays the demo and writes a run folder under `runs/`. With a key:
-
-```
-export ANTHROPIC_API_KEY=...
-python -m flowagent extract chart.pdf --prefix EXP --name my-chart
-python -m flowagent eval runs/<run>/my-chart.csv reference.csv
-```
 
 `eval` scores a draft against a verified chart: precision, recall and F1 for steps and
 arrows, accuracy for deadline rules and citations. Optional: Poppler and Tesseract on the
