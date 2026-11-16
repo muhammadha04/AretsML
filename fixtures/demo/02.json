@@ -1,0 +1,256 @@
+{
+ "title": "Expert Evidence (r. 12.04)",
+ "chart_quotes": [
+  "Expert Evidence (r. 12.04)",
+  "Figure 1: This flowchart shows the procedure, timelines and responsibilities when calling expert evidence at trial pursuant to Rule 12.04 of the Sample Rules of Civil Procedure."
+ ],
+ "steps": [
+  {
+   "key": "CLAIM",
+   "step_name": "Claim",
+   "step_type": "START",
+   "actor": "Plaintiff",
+   "phase": "Pleadings",
+   "description": "Statement of Claim",
+   "form_required": "",
+   "rule_ref": "r. 12.04",
+   "quotes": [
+    "Claim"
+   ],
+   "optional": false,
+   "next": [
+    {
+     "to": "DEFENCE",
+     "condition": ""
+    }
+   ],
+   "confidence": "high",
+   "question": ""
+  },
+  {
+   "key": "DEFENCE",
+   "step_name": "Defence",
+   "step_type": "PLEADING",
+   "actor": "Defendant",
+   "phase": "Pleadings",
+   "description": "Statement of Defence",
+   "form_required": "",
+   "rule_ref": "r. 12.04",
+   "quotes": [
+    "Defence"
+   ],
+   "optional": false,
+   "next": [
+    {
+     "to": "SETDOWN",
+     "condition": ""
+    }
+   ],
+   "confidence": "high",
+   "question": ""
+  },
+  {
+   "key": "SETDOWN",
+   "step_name": "Set Down for Trial",
+   "step_type": "ACTION",
+   "actor": "Plaintiff",
+   "phase": "Trial Readiness",
+   "description": "File trial record",
+   "form_required": "",
+   "rule_ref": "r. 12.04",
+   "quotes": [
+    "Set Down for Trial (file trial record)"
+   ],
+   "optional": false,
+   "next": [
+    {
+     "to": "SCHEDULE",
+     "condition": ""
+    }
+   ],
+   "confidence": "high",
+   "question": ""
+  },
+  {
+   "key": "SCHEDULE",
+   "step_name": "Schedule for service of expert reports",
+   "step_type": "ACTION",
+   "actor": "Both",
+   "phase": "Expert Reports",
+   "description": "Parties to agree upon",
+   "form_required": "",
+   "rule_ref": "r. 12.04(2.2)",
+   "quotes": [
+    "Schedule for service of expert reports (parties to agree upon)",
+    "within 60 days (r. 12.04(2.2))"
+   ],
+   "optional": false,
+   "next": [
+    {
+     "to": "AFFIDAVITS",
+     "condition": ""
+    }
+   ],
+   "confidence": "high",
+   "question": "",
+   "deadline": {
+    "basis": "set_down",
+    "timeframe": "within 60 days",
+    "question": "When was the action set down for trial?",
+    "offsets": [
+     {
+      "sign": "+",
+      "amount": 60,
+      "unit": "d"
+     }
+    ]
+   }
+  },
+  {
+   "key": "AFFIDAVITS",
+   "step_name": "Expert affidavits",
+   "step_type": "ACTION",
+   "actor": "Both",
+   "phase": "Expert Reports",
+   "description": "Served no later than 90 days before pre-trial",
+   "form_required": "",
+   "rule_ref": "r. 12.04(1)",
+   "quotes": [
+    "Expert affidavits (served no later than 90 days before pre-trial r. 12.04(1))"
+   ],
+   "optional": false,
+   "next": [
+    {
+     "to": "RESPONDING",
+     "condition": ""
+    }
+   ],
+   "confidence": "high",
+   "question": "",
+   "deadline": {
+    "basis": "pretrial",
+    "timeframe": "served no later than 90 days before pre-trial",
+    "question": "What is the pre-trial date?",
+    "offsets": [
+     {
+      "sign": "-",
+      "amount": 90,
+      "unit": "d"
+     }
+    ]
+   }
+  },
+  {
+   "key": "RESPONDING",
+   "step_name": "Responding expert reports",
+   "step_type": "ACTION",
+   "actor": "Both",
+   "phase": "Expert Reports",
+   "description": "Served no later than 60 days before pre-trial",
+   "form_required": "",
+   "rule_ref": "r. 12.04(2)",
+   "quotes": [
+    "Responding expert reports (served no later than 60 days before pre-trial (r. 12.04(2))"
+   ],
+   "optional": false,
+   "next": [
+    {
+     "to": "PRETRIAL",
+     "condition": ""
+    }
+   ],
+   "confidence": "high",
+   "question": "",
+   "deadline": {
+    "basis": "pretrial",
+    "timeframe": "served no later than 60 days before pre-trial",
+    "question": "What is the pre-trial date?",
+    "offsets": [
+     {
+      "sign": "-",
+      "amount": 60,
+      "unit": "d"
+     }
+    ]
+   }
+  },
+  {
+   "key": "PRETRIAL",
+   "step_name": "Pre-Trial",
+   "step_type": "EVENT",
+   "actor": "Court",
+   "phase": "Trial Readiness",
+   "description": "Provide Court with copy of expert affidavits if used at trial and may be of assistance in achieving purposes of pretrial",
+   "form_required": "",
+   "rule_ref": "r. 12.04",
+   "quotes": [
+    "Pre-Trial (provide Court with copy of expert affidavits if used at trial and may be of assistance in achieving purposes of pretrial)"
+   ],
+   "optional": false,
+   "next": [
+    {
+     "to": "SUPP",
+     "condition": ""
+    }
+   ],
+   "confidence": "high",
+   "question": ""
+  },
+  {
+   "key": "SUPP",
+   "step_name": "Supplementary expert reports",
+   "step_type": "ACTION",
+   "actor": "Both",
+   "phase": "Expert Reports",
+   "description": "Served no later than 30 days before trial",
+   "form_required": "",
+   "rule_ref": "r. 12.04(3)(b)",
+   "quotes": [
+    "Supplementary expert reports (served no later than 30 days before trial (r. 12.04(3) (b))"
+   ],
+   "optional": false,
+   "next": [
+    {
+     "to": "TRIAL",
+     "condition": ""
+    }
+   ],
+   "confidence": "high",
+   "question": "",
+   "deadline": {
+    "basis": "trial",
+    "timeframe": "served no later than 30 days before trial",
+    "question": "What is the trial date?",
+    "offsets": [
+     {
+      "sign": "-",
+      "amount": 30,
+      "unit": "d"
+     }
+    ]
+   }
+  },
+  {
+   "key": "TRIAL",
+   "step_name": "Trial",
+   "step_type": "OUTCOME",
+   "actor": "Court",
+   "phase": "Trial",
+   "description": "Expert testifies",
+   "form_required": "",
+   "rule_ref": "r. 12.04",
+   "quotes": [
+    "Trial (Expert Testifies)"
+   ],
+   "optional": false,
+   "next": [
+    {
+     "to": "END",
+     "condition": ""
+    }
+   ],
+   "confidence": "high",
+   "question": ""
+  }
+ ]
+}

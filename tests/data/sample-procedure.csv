@@ -1,0 +1,10 @@
+step_id,drawio_id,step_name,step_type,actor,phase,description,form_required,rule_ref,deadline_question,timeframe,deadline_rule,next_steps,next_step_conditions,reverse_steps,branch,notes,pos_x,pos_y,node_width
+EXP_CLAIM,,Claim,START,Plaintiff,Pleadings,Statement of Claim,,r. 12.04,,,,EXP_DEFENCE,,,EXPERT,,,,
+EXP_DEFENCE,,Defence,PLEADING,Defendant,Pleadings,Statement of Defence,,r. 12.04,,,,EXP_SETDOWN,,,EXPERT,,,,
+EXP_SETDOWN,,Set Down for Trial,ACTION,Plaintiff,Trial Readiness,File trial record,,r. 12.04,,,,EXP_SCHEDULE,,,EXPERT,,,,
+EXP_SCHEDULE,,Schedule for service of expert reports,ACTION,Both,Expert Reports,Parties to agree upon,,r. 12.04(2.2),When was the action set down for trial?,within 60 days,set_down+60d,EXP_AFFIDAVITS,,,EXPERT,,,,
+EXP_AFFIDAVITS,,Expert affidavits,ACTION,Both,Expert Reports,Served no later than 90 days before pre-trial,,r. 12.04(1),What is the pre-trial date?,served no later than 90 days before pre-trial,pretrial-90d,EXP_RESPONDING,,,EXPERT,,,,
+EXP_RESPONDING,,Responding expert reports,ACTION,Both,Expert Reports,Served no later than 60 days before pre-trial,,r. 12.04(2),What is the pre-trial date?,served no later than 60 days before pre-trial,pretrial-60d,EXP_PRETRIAL,,,EXPERT,,,,
+EXP_PRETRIAL,,Pre-Trial,EVENT,Court,Trial Readiness,Provide Court with copy of expert affidavits if used at trial and may be of assistance in achieving purposes of pretrial,,r. 12.04,,,,EXP_SUPP,,,EXPERT,,,,
+EXP_SUPP,,Supplementary expert reports,ACTION,Both,Expert Reports,Served no later than 30 days before trial,,r. 12.04(3)(b),What is the trial date?,served no later than 30 days before trial,trial-30d,EXP_TRIAL,,,EXPERT,,,,
+EXP_TRIAL,,Trial,OUTCOME,Court,Trial,Expert testifies,,r. 12.04,,,,END,,,EXPERT,,,,

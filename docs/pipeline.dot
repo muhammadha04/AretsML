@@ -1,0 +1,23 @@
+digraph flowagent {
+  rankdir=TB; nodesep=0.35; ranksep=0.45;
+  fontname="Helvetica"; node [fontname="Helvetica", fontsize=11, shape=box, style="rounded,filled", fillcolor="#f4f4f1", color="#55554f", margin="0.16,0.09"];
+  edge [fontname="Helvetica", fontsize=10, color="#55554f"];
+
+  pdf     [label="Source PDF\n(procedure chart or rule text)", shape=note, fillcolor="#ffffff"];
+  ingest  [label="1  Ingest  (code)\nPDF bytes + text layer, or OCR"];
+  extract [label="2  Extract  (LLM)\none step per box, exact quotes,\nstructured deadline fields", fillcolor="#e3ecf7", color="#2f5d9b"];
+  build   [label="3  Build  (code)\nstep ids, deadline_rule strings, CSV rows"];
+  check   [label="4  Check  (code)\nstructure  ·  deadlines  ·  grounding", fillcolor="#e6f2e6", color="#2e7031"];
+  ok      [label="errors?", shape=diamond, style="filled", fillcolor="#ffffff"];
+  repair  [label="5  Repair  (LLM)\nerrors + hints + previous draft", fillcolor="#e3ecf7", color="#2f5d9b"];
+  report  [label="6  Report  (code)\nCSV · evidence.json · verify.md\nOPEN-QUESTIONS.md · run.json"];
+  lawyer  [label="7  Lawyer review\nsign the verification sheet,\nanswer the open questions", fillcolor="#fbeed5", color="#9a6a10"];
+  app     [label="Target app\n(import by a person)", shape=note, fillcolor="#ffffff"];
+
+  pdf -> ingest -> extract -> build -> check -> ok;
+  ok -> repair [label="yes, rounds left"];
+  repair -> build;
+  ok -> report [label="no, or out of rounds"];
+  report -> lawyer -> app;
+  lawyer -> pdf [label="rejected: fix the\nsource or the chart", style=dashed, constraint=false];
+}
