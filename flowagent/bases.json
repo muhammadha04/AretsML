@@ -1,0 +1,16 @@
+{
+  "_comment": "Every date a deadline_rule may count from. 'anchor' is a regular expression matched against step names (lower case) to find the step where that date is known; 'kind' is 'past' for an event that has happened when the deadline runs and 'future' for a scheduled hearing that deadlines count back from. Add a basis here before using it in a chart.",
+  "claim":               {"label": "Statement of Claim issued",        "anchor": "^(statement of )?claim\\b",        "kind": "past"},
+  "served":              {"label": "Statement of Claim served",        "anchor": "^(statement of )?claim\\b",        "kind": "past"},
+  "defence":             {"label": "Statement of Defence delivered",   "anchor": "\\bdefence\\b",                    "kind": "past"},
+  "first_defence":       {"label": "First defence filed",              "anchor": "\\bdefence\\b",                    "kind": "past"},
+  "pleadings_close":     {"label": "Close of pleadings",               "anchor": "\\bdefence\\b|pleadings",          "kind": "past"},
+  "set_down":            {"label": "Action set down for trial",        "anchor": "^set down\\b",                     "kind": "past"},
+  "struck_off":          {"label": "Action struck off the trial list", "anchor": "^struck off\\b",                   "kind": "past"},
+  "mediator_assigned":   {"label": "Mediator assigned",                "anchor": "mediator assigned|assign",         "kind": "past"},
+  "mediation":           {"label": "Mediation session date",           "anchor": "^mediation\\b",                    "kind": "either"},
+  "pretrial":            {"label": "Pre-trial conference date",        "anchor": "^pre-?trial( conference)?$",       "kind": "future"},
+  "trial":               {"label": "Trial date",                       "anchor": "^trial\\b",                        "kind": "future"},
+  "motion_hearing":      {"label": "Motion hearing date",              "anchor": "hearing",                          "kind": "future"},
+  "application_hearing": {"label": "Application hearing date",         "anchor": "hearing",                          "kind": "future"}
+}
